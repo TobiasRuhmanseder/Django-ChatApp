@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Login</h1>
+{% if wrongPassword %}
+<p>Username or password was wrong! Please try it again. </p>
+{% endif %}
+
+<form method="post" action="/login/">
+    {% csrf_token %}
+    <div><input type="hidden" name="redirect" value="{{ redirect }}" ></div>
+    <div><input name="username" type="text"></div>
+    <div><input name="password" type="password"></div>
+    <div><button>Login</button></div>
+</form>
+
+{% endblock %}
